@@ -13,7 +13,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
-            background: #010103; 
+            /* 🌌 گۆڕینی باکگراوند بۆ ڕەنگێکی کراوەتر و گەشاوەتر (Luxury Radiant Mauve) */
+            background: radial-gradient(circle at center, #5c3450 0%, #3a1d31 60%, #220f1c 100%); 
             color: #ffffff; 
             font-family: 'MyKdgFont', sans-serif; 
             overflow: hidden;
@@ -55,13 +56,13 @@
             pointer-events: none; 
         }
 
-        /* 💕 ئەنیمەیشنی دڵە فڕیوەکانی پشتخلفی کتێبەکە */
+        /* 💕 ئەنیمەیشنی دڵە فڕیوەکان */
         .bg-hearts {
             position: absolute; width: 100%; height: 100%; top:0; left:0; pointer-events: none; z-index: 0;
             display: none;
         }
         .heart-particle {
-            position: absolute; bottom: -20px; color: rgba(212, 175, 55, 0.15); font-size: 1.2rem;
+            position: absolute; bottom: -20px; color: rgba(255, 255, 255, 0.25); font-size: 1.2rem;
             animation: floatUp 8s linear infinite;
         }
         @keyframes floatUp {
@@ -71,10 +72,10 @@
             100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
         }
 
-        /* 🔐 شاشەی قفڵ */
+        /* 🔐 شاشەی قفڵ - کراوەتر کرا */
         .lock-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(10, 3, 7, 0.95); backdrop-filter: blur(25px);
+            background: rgba(58, 29, 49, 0.92); backdrop-filter: blur(25px);
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             z-index: 99; opacity: 0; pointer-events: none;
             transition: opacity 1.2s ease, transform 1s cubic-bezier(0.85, 0, 0.15, 1);
@@ -83,14 +84,14 @@
         .lock-screen.unlock { transform: scale(1.2); opacity: 0; pointer-events: none; }
         
         .lock-card {
-            background: linear-gradient(135deg, rgba(255, 182, 193, 0.07) 0%, rgba(255,255,255,0.01) 100%);
-            border: 1px solid rgba(212, 175, 55, 0.2); padding: 50px 40px; border-radius: 30px;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.1) 0%, rgba(255,255,255,0.02) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.4); padding: 50px 40px; border-radius: 30px;
             text-align: center; width: 90%; max-width: 400px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
         }
         .pass-input {
-            width: 100%; padding: 16px; border-radius: 16px; border: 1px solid rgba(212,175,55,0.2);
-            background: rgba(0,0,0,0.5); color: #fff; text-align: center; font-size: 1.4rem;
+            width: 100%; padding: 16px; border-radius: 16px; border: 1px solid rgba(212,175,55,0.3);
+            background: rgba(0,0,0,0.4); color: #fff; text-align: center; font-size: 1.4rem;
             letter-spacing: 6px; margin-bottom: 20px; outline: none; transition: 0.3s;
         }
         .pass-input:focus { border-color: #ff4d6d; box-shadow: 0 0 20px rgba(255, 77, 109, 0.3); }
@@ -118,25 +119,27 @@
             transform-style: preserve-3d;
         }
 
-        /* ستایلی لاپەڕەکان */
+        /* ستایلی لاپەڕەکان - چاککردنی سێبەرەکان بۆ دەرکەوتنی زیاتر لەسەر باکگراوندە کراوەکە */
         .page {
             position: absolute; width: 100%; height: 100%; top: 0; left: 0;
             border-radius: 16px 0 0 16px; padding: 35px 25px;
-            background: #160b13; border: 1px solid rgba(212, 175, 55, 0.15);
+            background: #160b13; border: 1px solid rgba(212, 175, 55, 0.2);
             transform-origin: right center;
             transform-style: preserve-3d;
             transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.1s 0.6s;
             display: flex; flex-direction: column; justify-content: space-between; align-items: center;
-            box-shadow: inset 12px 0 35px rgba(0,0,0,0.6), -10px 10px 30px rgba(0,0,0,0.4);
+            box-shadow: inset 12px 0 35px rgba(0,0,0,0.6), -15px 20px 40px rgba(0,0,0,0.6);
             backface-visibility: hidden;
         }
 
+        /* چاککردنی ڕێزبەندی لۆژیکی z-index بۆ ئەوەی لاپەڕەکان یەک بە یەک بە دروستی دابخرێن و بکرێنەوە */
         #page1 { z-index: 5; background: linear-gradient(135deg, #3c0f24 0%, #16050e 100%); border-right: 5px solid #d4af37; }
         #page2 { z-index: 4; background: linear-gradient(135deg, #1f0c18 0%, #0d040a 100%); }
         #page3 { z-index: 3; background: linear-gradient(135deg, #1f0c18 0%, #0d040a 100%); }
         #page4 { z-index: 2; background: linear-gradient(135deg, #1f0c18 0%, #0d040a 100%); }
         #page5 { z-index: 1; background: linear-gradient(135deg, #16050e 0%, #3c0f24 100%); border-left: 1px solid rgba(212,175,55,0.3); }
 
+        /* کاتێک لاپەڕەیەک هەڵدەدرێتەوە دەکەوێتە سەرەوەی هەمووان */
         .page.flipped {
             transform: rotateY(180deg);
             z-index: 10 !important;
@@ -231,7 +234,7 @@
             <h2 style="margin-bottom:15px; color:#d4af37; letter-spacing: 2px;">OUR LOVE MEMORY</h2>
             <p style="font-size:0.95rem; color:#cca7b3; margin-bottom:25px;">کۆدی نهێنی بنووسە</p>
             <input type="password" id="passwordInput" class="pass-input" placeholder="••••">
-            <button class="unlock-btn" id="unlockBtn">بیکەرەوە و ببینە</button>
+            <button class="unlock-btn" id="unlockBtn">بکەوە و ببینە</button>
             <p id="errorMsg" style="color: #ff4d6d; font-size: 0.9rem; margin-top: 15px; display: none;">❌ کۆدەکە هەڵەیە!</p>
         </div>
     </div>
@@ -346,7 +349,6 @@
         const particles = [];
         const maxParticles = 1200;
 
-        // دروستکردنی گەردیلەکان لە سەرەتادا
         for (let i = 0; i < maxParticles; i++) {
             particles.push({
                 x: W / 2 + (Math.random() - 0.5) * 400, y: H / 2 + (Math.random() - 0.5) * 400,
@@ -371,7 +373,8 @@
 
         function loop() {
             if (appState !== 'done') {
-                ctx.fillStyle = '#010104';
+                /* گۆڕینی ڕەنگی پشتخلفی تەنۆکەکان بۆ ڕەنگی کراوەتر لەگەڵ باکگراوندە نوێیەکە */
+                ctx.fillStyle = '#220f1c';
                 ctx.fillRect(0, 0, W, H);
                 globalTime += 0.016;
 
@@ -391,34 +394,29 @@
         }
         loop();
 
-        // 🔘 لێرە کاتێک کلیک لەسەر لۆگۆکە دەکرێت
         logoBtn.addEventListener('click', () => {
             kdgAudio.play().catch(err => console.log(err));
-            logoBtn.classList.add('fade-away'); // لۆگۆکە خێرا ون دەبێت
+            logoBtn.classList.add('fade-away');
 
-            // 🎆 تەقینەوەی گەردیلەکان بەرەو دەرەوەی شاشە
             particles.forEach(p => {
                 let angle = Math.random() * Math.PI * 2;
                 let dist = Math.max(W, H) * 1.2;
                 p.tx = W / 2 + Math.cos(angle) * dist;
                 p.ty = H / 2 + Math.sin(angle) * dist;
-                p.speed = 0.04; // خێرایی تەقینەوەکە
+                p.speed = 0.04;
             });
 
-            // گواستنەوەی ڕاستەوخۆ بۆ شاشەی پاسۆرد بەبێ دواکەوتن
             setTimeout(() => {
                 introLayer.classList.add('hide');
                 canvas.style.display = 'none'; 
                 appState = 'done';
                 
-                // لێرە پاسۆردەکە ڕاستەوخۆ دەردەکەوێت
                 lockScreen.classList.add('show');
                 document.getElementById('bgHearts').style.display = 'block';
                 setupRomanticHearts();
             }, 800); 
         });
 
-        // 💖 دڵە فڕیوەکانی پشتخلفی کتێبەکە
         function setupRomanticHearts() {
             const bgHearts = document.getElementById('bgHearts');
             const heartSymbols = ['❤️', '💖', '✨', '💕'];
@@ -433,11 +431,10 @@
             }
         }
 
-        // 🔐 بەش کەرەوەی پاسۆرد
         const CORRECT_PASSWORD = "KDG2026";
         document.getElementById('unlockBtn').addEventListener('click', () => {
             if(document.getElementById('passwordInput').value === CORRECT_PASSWORD) {
-                kdgAudio.pause(); // کوژاندنەوەی مۆسیقای باکگراوند
+                kdgAudio.pause();
                 lockScreen.classList.add('unlock');
                 document.getElementById('albumContainer').classList.add('show');
             } else {
@@ -445,17 +442,22 @@
             }
         });
 
-        // 📖 کۆنتڕۆڵی لاپەڕەکان
-        function flipPage(pageNum) { document.getElementById(`page${pageNum}`).classList.add('flipped'); }
+        /* 📖 لۆژیکی چاککراو بۆ هەڵدانەوەی بێ کێشەی لاپەڕەکان و دەرکەوتنی وێنەی پێنجەم (کۆتایی) */
+        function flipPage(pageNum) { 
+            document.getElementById(`page${pageNum}`).classList.add('flipped'); 
+        }
+        
         function unflipPage(pageNum) {
             if(pageNum === 5) {
-                for(let i=4; i>=1; i--) document.getElementById(`page${i}`).classList.remove('flipped');
+                // کاتێک لە لاپەڕەی 5ەوە دەگەڕێتەوە سەرەتا، هەموو لاپەڕەکان ڕێکدەخرێنەوە
+                for(let i=4; i>=1; i--) {
+                    document.getElementById(`page${i}`).classList.remove('flipped');
+                }
             } else {
                 document.getElementById(`page${pageNum-1}`).classList.remove('flipped');
             }
         }
 
-        // 🎵 کۆنتڕۆڵی پلەیەرەکە
         const audio = document.getElementById('audioTrack');
         const playBtn = document.getElementById('playBtn');
         const volumeSlider = document.getElementById('volumeSlider');
